@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class DriverUtilities {
 
@@ -65,5 +67,7 @@ public class DriverUtilities {
             default:
                 break;
         }
+        this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        this.driver.manage().window().setSize(new Dimension(1920,1080));
     }
 }

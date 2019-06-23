@@ -17,8 +17,9 @@ public class BbcHomePage {
 
     //page actions
 
-    public void goToHomePage(){
+    public BbcHomePage goToHomePage(){
         driver.navigate().to(HomePageURL);
+        return this;
     }
 
     public void clickSignInLink(){

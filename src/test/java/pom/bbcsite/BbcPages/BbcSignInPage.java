@@ -24,16 +24,19 @@ public class BbcSignInPage {
         driver.navigate().to(BbcSignInPageURL);
     }
 
-    public void inputUserName(String name){
+    public BbcSignInPage inputUserName(String name){
         driver.findElement(usernameFieldID).sendKeys(name);
+        return this;
     }
 
-    public void inputPassword(String password){
+    public BbcSignInPage inputPassword(String password){
         driver.findElement(passwordFieldID).sendKeys(password);
+        return this;
     }
 
-    public void clickSubmitButton(){
+    public BbcSignInPage clickSubmitButton(){
         driver.findElement(submitButtonID).click();
+        return this;
     }
 
     public String getPasswordErrorText(){

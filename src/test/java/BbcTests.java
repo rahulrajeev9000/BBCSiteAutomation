@@ -7,23 +7,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pom.bbcsite.BbcPages.BbcRegisterPage;
 import pom.bbcsite.BbcPages.BbcSignInPage;
 import pom.bbcsite.BbcSIte;
+import utilities.DriverUtilities;
 
 public class BbcTests {
 
-    static BbcSIte bbcSIte = new BbcSIte(new ChromeDriver());
+    static BbcSIte bbcSIte = new BbcSIte(DriverUtilities.getInstanceOfDriverUtilities().getDriver());
 
     @Test
     public void debugger(){
-        bbcSIte.getBbcHomePage().goToHomePage();
-        bbcSIte.getBbcHomePage().clickSignInLink();
+        bbcSIte.getBbcHomePage().goToHomePage().clickSignInLink();
+       // bbcSIte.getBbcHomePage().clickSignInLink();
     }
 
     @Test
     public void testPasswordErrorMessage(){
         bbcSIte.getBbcSignInPage().goToSignInPage();
-        bbcSIte.getBbcSignInPage().inputUserName("test@gmail.com");
-        bbcSIte.getBbcSignInPage().inputPassword("232");
-        bbcSIte.getBbcSignInPage().clickSubmitButton();
+        bbcSIte.getBbcSignInPage().inputUserName("test@gmail.com").inputPassword("232").clickSubmitButton();
+//        bbcSIte.getBbcSignInPage();
+//        bbcSIte.getBbcSignInPage());
         Assert.assertEquals("Sorry, that password is too short. It needs to be eight characters or more.", bbcSIte.getBbcSignInPage().getPasswordErrorText());
     }
 
